@@ -36,7 +36,7 @@ body.hovering #cur-r{width:54px;height:54px;border-color:var(--acc)}
 
 /* NAV */
 nav{
-  position:fixed;top:0;left:0;right:0;z-index:1000;height:60px;
+  position:fixed;top:0;left:0;right:0;z-index:800;height:60px;
   display:flex;align-items:center;justify-content:space-between;
   padding:0 5%;
   background:rgba(2,2,4,0.9);backdrop-filter:blur(32px);
@@ -60,16 +60,16 @@ nav{
 .n-hamburger.open span:nth-child(2){opacity:0}
 .n-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-/* Mobile nav drawer - FIXED */
+/* Mobile nav drawer */
 .n-drawer{
-  display: flex; position:fixed;top:60px;left:0;right:0;
-  background:rgba(2,2,4,0.98);backdrop-filter:blur(32px);
-  border-bottom:1px solid var(--border);z-index:999;
+  display:none;position:fixed;top:60px;left:0;right:0;
+  background:rgba(2,2,4,0.97);backdrop-filter:blur(32px);
+  border-bottom:1px solid var(--border);z-index:799;
   padding:16px 5% 24px;flex-direction:column;gap:4px;
-  transform:translateY(-20px);opacity:0;pointer-events: none;
-  transition:transform .3s ease, opacity .3s ease;
+  transform:translateY(-10px);opacity:0;
+  transition:transform .25s ease,opacity .25s ease;
 }
-.n-drawer.open{transform:translateY(0);opacity:1;pointer-events: all}
+.n-drawer.open{transform:translateY(0);opacity:1}
 .n-drawer a{display:block;padding:12px 16px;font-size:0.85rem;font-weight:600;color:var(--t2);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;border-radius:8px;border:1px solid transparent;transition:all .15s}
 .n-drawer a:hover{color:var(--t1);background:var(--glass);border-color:var(--border)}
 
@@ -433,6 +433,7 @@ footer{
    MOBILE RESPONSIVE
    ============================================================ */
 
+/* Tablet — 960px */
 @media(max-width:960px){
   nav{padding:0 5%}
   .n-links{display:none}
@@ -465,6 +466,7 @@ footer{
   .sk-tags{display:none}
 }
 
+/* Mobile — 640px */
 @media(max-width:640px){
   nav{padding:0 4%}
   .n-cta{padding:7px 16px;font-size:.65rem}
@@ -517,6 +519,7 @@ footer{
   .marquee-wrap::before,.marquee-wrap::after{width:60px}
 }
 
+/* Small mobile — 400px */
 @media(max-width:400px){
   h1.main{font-size:clamp(2.2rem,12vw,3rem)}
   .hchip{font-size:.58rem;padding:5px 11px}
@@ -532,6 +535,7 @@ footer{
 <div id="cur-r"></div>
 <canvas id="particle-canvas"></canvas>
 
+<!-- NAV -->
 <nav>
   <a href="#hero" class="n-logo"><div class="n-dot"></div>NM_DEV</a>
   <ul class="n-links">
@@ -550,6 +554,7 @@ footer{
   </div>
 </nav>
 
+<!-- MOBILE DRAWER -->
 <div class="n-drawer" id="drawer">
   <a href="#about" onclick="closeDrawer()">About</a>
   <a href="#skills" onclick="closeDrawer()">Skills</a>
@@ -559,6 +564,7 @@ footer{
   <a href="#contact" onclick="closeDrawer()">Contact</a>
 </div>
 
+<!-- HERO -->
 <section id="hero">
   <div class="hero-bg-lines"></div>
   <div class="hero-glow hg1"></div>
@@ -602,6 +608,7 @@ footer{
   </div>
 </section>
 
+<!-- STATS — Fixed: 4+ shown as text directly, others count up -->
 <div class="stats-bar">
   <div class="stat-item rv">
     <span class="stat-val c-g" id="stat-exp">4+</span>
@@ -621,6 +628,7 @@ footer{
   </div>
 </div>
 
+<!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-inner" id="mq">
     <div class="m-item"><span>Swift</span><div class="m-dot"></div></div>
@@ -658,6 +666,7 @@ footer{
   </div>
 </div>
 
+<!-- ABOUT -->
 <section class="sec rv" id="about">
   <div class="sec-head">
     <span class="sec-label">01 / About</span>
@@ -687,7 +696,7 @@ footer{
       <div class="pc-row"><div class="pc-k">Email</div><div class="pc-v"><a href="mailto:naveenmurugesan1609@gmail.com">naveenmurugesan1609@gmail.com</a></div></div>
       <div class="pc-row"><div class="pc-k">Phone</div><div class="pc-v">+91 70921 69159</div></div>
       <div class="pc-row"><div class="pc-k">Location</div><div class="pc-v">Salem / Chennai, TN</div></div>
-      <div class="pc-row"><div class="pc-k">Company</div><div class="pc-v">Duffl Digital Private Limited</div></div>
+      <div class="pc-row"><div class="pc-k">Company</div><div class="pc-v">Duffl Digital Private Limited | O Clock Software</div></div>
       <div class="pc-row"><div class="pc-k">Since</div><div class="pc-v">May 2022</div></div>
       <div class="pc-row"><div class="pc-k">Languages</div><div class="pc-v">English, Tamil</div></div>
       <div class="pc-row"><div class="pc-k">Status</div><div class="pc-v on">Open to work</div></div>
@@ -695,6 +704,7 @@ footer{
   </div>
 </section>
 
+<!-- SKILLS -->
 <section class="sec rv" id="skills">
   <div class="sec-head">
     <span class="sec-label">02 / Skills</span>
@@ -704,16 +714,37 @@ footer{
     <div class="sk-row rv rv-d1">
       <div class="sk-name">iOS · Swift</div>
       <div class="sk-track"><div class="sk-bar"><div class="sk-fill" style="width:0;background:linear-gradient(90deg,#3DFF8F,#4D9EFF)" data-w="92%"></div></div><div class="sk-num">92%</div></div>
-      <div class="sk-tags"><span class="sk-tag">Swift</span><span class="sk-tag">SwiftUI</span><span class="sk-tag">UIKit</span><span class="sk-tag">CoreData</span><span class="sk-tag">CoreLocation</span><span class="sk-tag">APNs</span></div>
+      <div class="sk-tags"><span class="sk-tag">Swift</span><span class="sk-tag">SwiftUI</span><span class="sk-tag">UIKit</span><span class="sk-tag">CoreData</span><span class="sk-tag">CoreLocation</span><span class="sk-tag">APNs</span><span class="sk-tag">CoreAnimation</span></div>
     </div>
     <div class="sk-row rv rv-d2">
       <div class="sk-name">Flutter</div>
       <div class="sk-track"><div class="sk-bar"><div class="sk-fill" style="width:0;background:linear-gradient(90deg,#4D9EFF,#C084FC)" data-w="88%"></div></div><div class="sk-num">88%</div></div>
-      <div class="sk-tags"><span class="sk-tag">Dart</span><span class="sk-tag">Provider</span><span class="sk-tag">BLoC</span><span class="sk-tag">Auto Router</span></div>
+      <div class="sk-tags"><span class="sk-tag">Dart</span><span class="sk-tag">Provider</span><span class="sk-tag">BLoC</span><span class="sk-tag">Auto Router</span><span class="sk-tag">Build Flavours</span></div>
+    </div>
+    <div class="sk-row rv rv-d3">
+      <div class="sk-name">React Native</div>
+      <div class="sk-track"><div class="sk-bar"><div class="sk-fill" style="width:0;background:linear-gradient(90deg,#FF8C42,#FF4D9E)" data-w="70%"></div></div><div class="sk-num">70%</div></div>
+      <div class="sk-tags"><span class="sk-tag">JavaScript</span><span class="sk-tag">TypeScript</span><span class="sk-tag">Redux</span><span class="sk-tag">Axios</span><span class="sk-tag">Crashlytics</span></div>
+    </div>
+    <div class="sk-row rv rv-d4">
+      <div class="sk-name">APIs &amp; DB</div>
+      <div class="sk-track"><div class="sk-bar"><div class="sk-fill" style="width:0;background:linear-gradient(90deg,#C084FC,#FF8C42)" data-w="82%"></div></div><div class="sk-num">82%</div></div>
+      <div class="sk-tags"><span class="sk-tag">REST</span><span class="sk-tag">Alamofire</span><span class="sk-tag">Moya</span><span class="sk-tag">Firebase</span><span class="sk-tag">Firestore</span><span class="sk-tag">SQLite</span></div>
+    </div>
+    <div class="sk-row rv rv-d5">
+      <div class="sk-name">Architecture</div>
+      <div class="sk-track"><div class="sk-bar"><div class="sk-fill" style="width:0;background:linear-gradient(90deg,#3DFF8F,#C084FC)" data-w="85%"></div></div><div class="sk-num">85%</div></div>
+      <div class="sk-tags"><span class="sk-tag">MVVM</span><span class="sk-tag">MVP</span><span class="sk-tag">Clean Arch</span><span class="sk-tag">BLoC</span><span class="sk-tag">Pusher</span></div>
+    </div>
+    <div class="sk-row rv rv-d6">
+      <div class="sk-name">Tooling</div>
+      <div class="sk-track"><div class="sk-bar"><div class="sk-fill" style="width:0;background:linear-gradient(90deg,#FFD166,#FF8C42)" data-w="80%"></div></div><div class="sk-num">80%</div></div>
+      <div class="sk-tags"><span class="sk-tag">Git</span><span class="sk-tag">Figma</span><span class="sk-tag">Postman</span><span class="sk-tag">Jira</span><span class="sk-tag">Razor Pay</span><span class="sk-tag">TestFlight</span></div>
     </div>
   </div>
 </section>
 
+<!-- PROJECTS -->
 <section class="sec rv" id="projects">
   <div class="sec-head">
     <span class="sec-label">03 / Projects</span>
@@ -723,20 +754,67 @@ footer{
     <div class="pj-card rv rv-d1">
       <div class="pj-thumb" style="background:linear-gradient(135deg,rgba(61,255,143,.12),rgba(77,158,255,.12))">⚡
         <span class="pj-num">01</span>
-        <a href="#" target="_blank" class="pj-live-badge">Live</a>
+        <a href="https://apps.apple.com/in/app/western-electricals/id1479558479" target="_blank" class="pj-live-badge">Live</a>
       </div>
       <div class="pj-body">
         <div class="pj-meta"><span class="pj-title">Western Electricals</span><span class="pj-badge fl">Flutter</span></div>
-        <p class="pj-desc">Reward points app — QR scan, collect & withdraw. Sole dev, shipped to both stores.</p>
+        <p class="pj-desc">Reward points app — QR scan, collect & withdraw. Multi-language via REST. Sole dev, shipped to both stores.</p>
+        <div class="pj-pills"><span class="pj-pill">Provider+MVVM</span><span class="pj-pill">Clean Arch</span><span class="pj-pill">FCM</span><span class="pj-pill">QR Scanner</span></div>
         <div class="pj-foot">
-          <a href="#" class="pj-link gl">Play Store ↗</a>
-          <a href="#" class="pj-link gl">App Store ↗</a>
+          <a href="https://play.google.com/store/apps/details?id=com.westernswitches.app" target="_blank" class="pj-link gl">Play Store ↗</a>
+          <a href="https://apps.apple.com/in/app/western-electricals/id1479558479" target="_blank" class="pj-link gl">App Store ↗</a>
         </div>
+      </div>
+    </div>
+    <div class="pj-card rv rv-d2">
+      <div class="pj-thumb" style="background:linear-gradient(135deg,rgba(77,158,255,.12),rgba(168,85,247,.12))">💪<span class="pj-num">02</span></div>
+      <div class="pj-body">
+        <div class="pj-meta"><span class="pj-title">Neoness — Fitness</span><span class="pj-badge ios">iOS</span></div>
+        <p class="pj-desc">Coaching video delivery and event scheduling. MVVM + CoreData for offline support.</p>
+        <div class="pj-pills"><span class="pj-pill">Swift</span><span class="pj-pill">CoreData</span><span class="pj-pill">MVVM</span></div>
+        <div class="pj-foot"><a href="#" class="pj-link">View Project ↗</a></div>
+      </div>
+    </div>
+    <div class="pj-card rv rv-d3">
+      <div class="pj-thumb" style="background:linear-gradient(135deg,rgba(168,85,247,.12),rgba(255,77,158,.12))">🏥<span class="pj-num">03</span></div>
+      <div class="pj-body">
+        <div class="pj-meta"><span class="pj-title">KanceRx — Patient Care</span><span class="pj-badge ios">iOS</span></div>
+        <p class="pj-desc">Patient surveys + real-time Pusher chat for doctor-patient communication.</p>
+        <div class="pj-pills"><span class="pj-pill">Swift</span><span class="pj-pill">Pusher</span><span class="pj-pill">Firebase</span></div>
+        <div class="pj-foot"><a href="#" class="pj-link">View Project ↗</a></div>
+      </div>
+    </div>
+    <div class="pj-card rv rv-d4">
+      <div class="pj-thumb" style="background:linear-gradient(135deg,rgba(255,209,102,.1),rgba(255,140,66,.12))">🛒<span class="pj-num">04</span></div>
+      <div class="pj-body">
+        <div class="pj-meta"><span class="pj-title">Srimuruga — E-Commerce</span><span class="pj-badge ios">iPad</span></div>
+        <p class="pj-desc">Enterprise iPad app for sales teams with Razor Pay and adaptive layouts.</p>
+        <div class="pj-pills"><span class="pj-pill">Swift</span><span class="pj-pill">Razor Pay</span><span class="pj-pill">APNs</span></div>
+        <div class="pj-foot"><a href="#" class="pj-link">View Project ↗</a></div>
+      </div>
+    </div>
+    <div class="pj-card rv rv-d5">
+      <div class="pj-thumb" style="background:linear-gradient(135deg,rgba(255,140,66,.12),rgba(77,158,255,.12))">🍺<span class="pj-num">05</span></div>
+      <div class="pj-body">
+        <div class="pj-meta"><span class="pj-title">Jay &amp; B — Beverages</span><span class="pj-badge rn">RN · JS</span></div>
+        <p class="pj-desc">Cross-platform enterprise beverage app with Redux and Axios HTTP layer.</p>
+        <div class="pj-pills"><span class="pj-pill">React Native</span><span class="pj-pill">Redux</span><span class="pj-pill">Axios</span></div>
+        <div class="pj-foot"><a href="#" class="pj-link">View Project ↗</a></div>
+      </div>
+    </div>
+    <div class="pj-card rv rv-d6">
+      <div class="pj-thumb" style="background:linear-gradient(135deg,rgba(61,255,143,.08),rgba(168,85,247,.12))">💰<span class="pj-num">06</span></div>
+      <div class="pj-body">
+        <div class="pj-meta"><span class="pj-title">Brigit — Finance</span><span class="pj-badge rn">RN · TS</span></div>
+        <p class="pj-desc">Financial wellness app with full VoiceOver accessibility and bank linking.</p>
+        <div class="pj-pills"><span class="pj-pill">TypeScript</span><span class="pj-pill">VoiceOver</span><span class="pj-pill">Bank Linking</span></div>
+        <div class="pj-foot"><a href="#" class="pj-link">View Project ↗</a></div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- EXPERIENCE -->
 <section class="sec rv" id="experience">
   <div class="sec-head">
     <span class="sec-label">04 / Experience</span>
@@ -745,22 +823,61 @@ footer{
   <div class="ex-wrap">
     <div class="ex-item">
       <div>
-        <div class="ex-date">May 2022 — Present</div>
+        <div class="ex-date">May 2022 — Present<br>3+ years</div>
         <div class="ex-badge">Current role</div>
       </div>
       <div>
         <div class="ex-role">Junior iOS Apps Developer</div>
         <div class="ex-co">O Clock Software Private Ltd · Chennai, India</div>
         <ul class="ex-li">
-          <li>Build and maintain mobile apps with Swift, Flutter, and React Native.</li>
-          <li>Implement responsive, device-adaptive UIs delivering seamless UX.</li>
-          <li>Own full release cycles — TestFlight builds through App Store submissions.</li>
+          <li>Build and maintain mobile apps with Swift, Flutter, and React Native following iOS Human Interface Guidelines.</li>
+          <li>Implement responsive, device-adaptive UIs delivering seamless UX across all iOS screen sizes.</li>
+          <li>Leverage UIKit, CoreData, CoreLocation, CoreAnimation, and iOS SDKs for robust production features.</li>
+          <li>Debug complex issues with Xcode, VS Code, and Postman; participate in code reviews with team leads.</li>
+          <li>Own full release cycles — TestFlight builds through App Store and Google Play production submissions.</li>
         </ul>
+        <div class="ex-techs">
+          <span class="ex-tech">Swift</span><span class="ex-tech">Flutter</span><span class="ex-tech">React Native</span>
+          <span class="ex-tech">Firebase</span><span class="ex-tech">CoreData</span><span class="ex-tech">TestFlight</span>
+          <span class="ex-tech">Xcode</span><span class="ex-tech">Jira</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- EDUCATION -->
+<section class="sec rv" id="education">
+  <div class="sec-head">
+    <span class="sec-label">05 / Education</span>
+    <h2 class="sec-title">Academic <i>background</i></h2>
+  </div>
+  <div class="ed-grid">
+    <div class="ed-card rv rv-d1">
+      <div class="ed-icon">🎓</div>
+      <div class="ed-yr">Aug 2018 – May 2022</div>
+      <div class="ed-deg">B.E. Electronics &amp; Communication Engineering</div>
+      <div class="ed-sch">Dhirajlal Gandhi College of Technology, Salem · Anna University</div>
+      <div class="ed-gr">CGPA 7.96 / 10</div>
+    </div>
+    <div class="ed-card rv rv-d2">
+      <div class="ed-icon">📘</div>
+      <div class="ed-yr">Completed 2018</div>
+      <div class="ed-deg">Higher Secondary Certificate (HSC)</div>
+      <div class="ed-sch">Sri Vidhya Mandir Matric Hr. Sec. School, Namakkal</div>
+      <div class="ed-gr">78%</div>
+    </div>
+    <div class="ed-card rv rv-d3">
+      <div class="ed-icon">📗</div>
+      <div class="ed-yr">Completed 2016</div>
+      <div class="ed-deg">Secondary School Leaving Certificate (SSLC)</div>
+      <div class="ed-sch">Holy Children Matric Hr. Sec. School, Salem</div>
+      <div class="ed-gr">95%</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
 <section class="sec rv" id="contact">
   <div class="sec-head">
     <span class="sec-label">06 / Contact</span>
@@ -769,10 +886,18 @@ footer{
   <div class="ct-layout">
     <div>
       <h3 class="ct-left-h">Let's build something <i>great.</i></h3>
-      <p class="ct-sub">Open to full-time roles and freelance projects. I reply within 24 hours.</p>
+      <p class="ct-sub">Open to full-time roles, freelance projects, and collaborations. I reply within 24 hours.</p>
       <div class="ct-rows">
         <div class="ct-row"><span class="ct-k">Email</span><span class="ct-v"><a href="mailto:naveenmurugesan1609@gmail.com">naveenmurugesan1609@gmail.com</a></span></div>
+        <div class="ct-row"><span class="ct-k">Phone</span><span class="ct-v">+91 70921 69159</span></div>
         <div class="ct-row"><span class="ct-k">Location</span><span class="ct-v">Chennai / Salem, TN</span></div>
+        <div class="ct-row"><span class="ct-k">GitHub</span><span class="ct-v"><a href="https://github.com/naveen-mj10" target="_blank">github.com/naveen-mj10</a></span></div>
+        <div class="ct-row"><span class="ct-k">LinkedIn</span><span class="ct-v"><a href="https://linkedin.com/in/" target="_blank">linkedin.com/in/yourprofile</a></span></div>
+      </div>
+      <div class="social-row">
+        <a href="https://github.com/naveen-mj10" target="_blank" class="s-btn">GH</a>
+        <a href="https://linkedin.com/in/" target="_blank" class="s-btn">in</a>
+        <a href="mailto:naveenmurugesan1609@gmail.com" class="s-btn">@</a>
       </div>
     </div>
     <div class="ct-form">
@@ -781,43 +906,28 @@ footer{
           <div class="ff"><label>Name</label><input type="text" placeholder="Your name" required/></div>
           <div class="ff"><label>Email</label><input type="email" placeholder="your@email.com" required/></div>
         </div>
-        <div class="ff"><label>Message</label><textarea placeholder="Tell me about your project..."></textarea></div>
+        <div class="ff"><label>Subject</label><input type="text" placeholder="What's this about?"/></div>
+        <div class="ff"><label>Message</label><textarea placeholder="Tell me about your project or opportunity..."></textarea></div>
         <button type="submit" class="btn-acc" style="width:100%;justify-content:center;cursor:pointer">Send Message →</button>
       </form>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="ft-l">
     <div class="ft-logo">Naveen <i style="font-family:var(--serif);font-style:italic">M.</i></div>
     <div class="ft-sub">© 2026 · MOBILE DEVELOPER · CHENNAI, INDIA</div>
   </div>
+  <div class="ft-r">
+    <a href="mailto:naveenmurugesan1609@gmail.com">Email</a>
+    <a href="https://github.com/naveen-mj10" target="_blank">GitHub</a>
+    <a href="https://linkedin.com/in/" target="_blank">LinkedIn</a>
+  </div>
 </footer>
 
 <script>
-/* MOBILE HAMBURGER & DRAWER LOGIC - FIXED */
-const hamburger = document.getElementById('hamburger');
-const drawer = document.getElementById('drawer');
-
-hamburger.addEventListener('click', (e) => {
-  e.stopPropagation();
-  const isOpen = hamburger.classList.toggle('open');
-  drawer.classList.toggle('open', isOpen);
-});
-
-function closeDrawer() {
-  hamburger.classList.remove('open');
-  drawer.classList.remove('open');
-}
-
-// Close drawer when clicking outside
-document.addEventListener('click', (e) => {
-  if (drawer.classList.contains('open') && !drawer.contains(e.target) && !hamburger.contains(e.target)) {
-    closeDrawer();
-  }
-});
-
 /* SCROLL PROGRESS */
 const prog = document.getElementById('progress');
 window.addEventListener('scroll',()=>{
@@ -862,6 +972,21 @@ function drawParticles(){
     ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
     ctx.fillStyle=p.c+p.o+')';ctx.fill();
   });
+  if(!isMobile()){
+    for(let i=0;i<particles.length;i++){
+      for(let j=i+1;j<particles.length;j++){
+        const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<120){
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x,particles[i].y);
+          ctx.lineTo(particles[j].x,particles[j].y);
+          ctx.strokeStyle=`rgba(255,255,255,${.04*(1-dist/120)})`;
+          ctx.lineWidth=.5;ctx.stroke();
+        }
+      }
+    }
+  }
   requestAnimationFrame(drawParticles);
 }
 drawParticles();
@@ -876,7 +1001,7 @@ const fills = document.querySelectorAll('.sk-fill');
 const sio = new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.width=e.target.dataset.w;sio.unobserve(e.target)}})},{threshold:.3});
 fills.forEach(f=>sio.observe(f));
 
-/* STAT COUNTERS */
+/* STAT COUNTERS — fixed: "4+" stays as text, others count up */
 function countUp(el, target, suffix, dur=1400){
   let s=0, inc=target/(dur/16);
   const t=setInterval(()=>{
@@ -885,8 +1010,10 @@ function countUp(el, target, suffix, dur=1400){
     if(s>=target)clearInterval(t);
   },16);
 }
+
 const statApps = document.getElementById('stat-apps');
 const statPlatforms = document.getElementById('stat-platforms');
+
 const statObs = new IntersectionObserver(es=>{
   es.forEach(e=>{
     if(!e.isIntersecting) return;
@@ -897,6 +1024,43 @@ const statObs = new IntersectionObserver(es=>{
   });
 },{threshold:.7});
 document.querySelectorAll('.stat-item').forEach(s=>statObs.observe(s));
+
+/* BENTO GLOW */
+document.querySelectorAll('.bcard').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const rect=card.getBoundingClientRect();
+    card.style.setProperty('--mx',((e.clientX-rect.left)/rect.width*100)+'%');
+    card.style.setProperty('--my',((e.clientY-rect.top)/rect.height*100)+'%');
+  });
+});
+
+/* NAV ACTIVE */
+const navAs = document.querySelectorAll('.n-links a');
+const secs = document.querySelectorAll('[id]');
+secs.forEach(s=>new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      navAs.forEach(a=>a.classList.remove('active'));
+      const a=document.querySelector(`.n-links a[href="#${e.target.id}"]`);
+      if(a)a.classList.add('active');
+    }
+  });
+},{rootMargin:'-30% 0px -65% 0px'}).observe(s));
+
+/* MOBILE HAMBURGER */
+const hamburger = document.getElementById('hamburger');
+const drawer = document.getElementById('drawer');
+hamburger.addEventListener('click',()=>{
+  const open = hamburger.classList.toggle('open');
+  drawer.style.display = open ? 'flex' : 'none';
+  setTimeout(()=>{if(open) drawer.classList.add('open')}, 10);
+  if(!open) drawer.classList.remove('open');
+});
+function closeDrawer(){
+  hamburger.classList.remove('open');
+  drawer.classList.remove('open');
+  setTimeout(()=>{drawer.style.display='none'},250);
+}
 
 /* CONTACT FORM */
 function handleSubmit(e){
