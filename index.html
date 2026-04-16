@@ -7,21 +7,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 :root{
-  --ink:#08070C;
-  --ink1:#0F0E15;
-  --ink2:#161420;
-  --ink3:#1E1C2A;
-  --a1:#FFD580;
-  --a2:#F4B942;
-  --a3:#C87D0E;
-  --a4:#7A4A00;
-  --a-glow:rgba(244,185,66,.10);
-  --a-line:rgba(255,213,128,.20);
-  --dust:#F5F3EA;
-  --mist:#C8C4A8;
-  --fog:#7A7660;
-  --wire:rgba(255,255,255,.06);
-  --wire2:rgba(255,255,255,.03);
+  --ink:#060A0C;
+  --ink1:#0C1214;
+  --ink2:#121A1E;
+  --ink3:#182228;
+  --a1:#5EEAD4;
+  --a2:#2DD4BF;
+  --a3:#0D9488;
+  --a4:#134E4A;
+  --a-glow:rgba(45,212,191,.08);
+  --a-line:rgba(94,234,212,.18);
+  --dust:#EEF7F6;
+  --mist:#A8C8C4;
+  --fog:#5A7A78;
+  --wire:rgba(255,255,255,.055);
+  --wire2:rgba(255,255,255,.028);
   --display:'Cormorant Garamond',serif;
   --body:'Outfit',sans-serif;
   --code:'DM Mono',monospace;
@@ -53,7 +53,7 @@ nav.scrolled{background:rgba(8,7,12,.93);backdrop-filter:blur(24px);border-botto
 .nr-links a:hover{color:var(--a1)}
 .nr-links{display:flex;gap:36px}
 .nh{font-family:var(--code);font-size:.65rem;padding:8px 20px;border:1px solid var(--a-line);color:var(--a1);border-radius:2px;text-decoration:none;letter-spacing:.1em;text-transform:uppercase;transition:background .2s,color .2s,border-color .2s}
-.nh:hover{background:var(--a2);color:var(--ink);border-color:var(--a2)}
+.nh:hover{background:var(--a2);color:#060A0C;border-color:var(--a2)}
 .n-ham{display:none;flex-direction:column;justify-content:center;gap:6px;background:none;border:none;cursor:pointer;padding:6px;width:40px;height:40px;position:relative;z-index:9999}
 .n-ham span{display:block;height:1.5px;background:var(--dust);transition:transform .35s cubic-bezier(.4,0,.2,1),opacity .3s,width .3s,background .2s}
 .n-ham span:nth-child(1){width:22px}
@@ -131,7 +131,7 @@ nav.scrolled{background:rgba(8,7,12,.93);backdrop-filter:blur(24px);border-botto
 .nd-item:hover .nd-arrow{transform:translateX(4px);color:var(--a1)}
 
 .nd-bottom{padding:0 32px}
-.nd-cta{display:block;width:100%;padding:13px;background:var(--a2);color:var(--ink);font-family:var(--body);font-size:.9rem;font-weight:600;text-align:center;text-decoration:none;border-radius:2px;letter-spacing:.03em;margin-bottom:20px;transition:background .2s}
+.nd-cta{display:block;width:100%;padding:13px;background:var(--a2);color:#060A0C;font-family:var(--body);font-size:.9rem;font-weight:600;text-align:center;text-decoration:none;border-radius:2px;letter-spacing:.03em;margin-bottom:20px;transition:background .2s}
 .nd-cta:hover{background:var(--a1)}
 .nd-soc-row{display:flex;gap:8px}
 .nd-soc{width:38px;height:38px;border:1px solid var(--wire);display:flex;align-items:center;justify-content:center;font-family:var(--code);font-size:.62rem;color:var(--fog);text-decoration:none;border-radius:2px;transition:all .15s}
@@ -169,7 +169,7 @@ h1.htitle em{font-style:italic;color:var(--a1);font-weight:300}
 .h-sub{font-size:1rem;font-weight:300;color:rgba(245,243,234,.8);letter-spacing:.04em;margin:22px 0 36px;max-width:440px;line-height:1.8;opacity:0;animation:riseIn .7s .82s ease forwards}
 .h-sub strong{color:#F5F3EA;font-weight:500}
 .h-cta-row{display:flex;align-items:center;gap:18px;opacity:0;animation:riseIn .6s .97s ease forwards}
-.cta-p{font-family:var(--body);font-size:.9rem;font-weight:600;padding:14px 32px;background:var(--a2);color:var(--ink);border-radius:2px;text-decoration:none;letter-spacing:.03em;transition:background .2s,transform .12s}
+.cta-p{font-family:var(--body);font-size:.9rem;font-weight:600;padding:14px 32px;background:var(--a2);color:#060A0C;border-radius:2px;text-decoration:none;letter-spacing:.03em;transition:background .2s,transform .12s}
 .cta-p:hover{background:var(--a1);transform:translateY(-2px)}
 .cta-s{font-family:var(--code);font-size:.65rem;color:var(--mist);text-decoration:none;letter-spacing:.14em;text-transform:uppercase;transition:color .2s;display:flex;align-items:center;gap:8px}
 .cta-s::after{content:'↓';font-size:.9rem;transition:transform .2s}
@@ -281,7 +281,7 @@ h1.htitle em{font-style:italic;color:var(--a1);font-weight:300}
 .pj-lnk{flex:1;text-align:center;font-family:var(--code);font-size:.58rem;padding:8px;border:1px solid var(--wire);color:var(--mist);text-decoration:none;border-radius:1px;transition:all .15s}
 .pj-lnk:hover{border-color:var(--a-line);color:var(--a1);background:var(--a-glow)}
 .pj-lnk.store{color:var(--a1);border-color:var(--a-line);background:var(--a-glow)}
-.pj-lnk.store:hover{background:var(--a2);color:var(--ink);border-color:var(--a2)}
+.pj-lnk.store:hover{background:var(--a2);color:#060A0C;border-color:var(--a2)}
 
 /* ─── EXPERIENCE ─── */
 .ex-wrap{display:flex;flex-direction:column}
@@ -331,7 +331,7 @@ h1.htitle em{font-style:italic;color:var(--a1);font-weight:300}
 .ff textarea{min-height:100px}
 .ff input::placeholder,.ff textarea::placeholder{color:var(--fog)}
 .ff input:focus,.ff textarea:focus{border-color:var(--a-line)}
-.btn-send{width:100%;padding:14px;background:var(--a2);color:var(--ink);font-family:var(--body);font-size:.9rem;font-weight:600;border:none;border-radius:1px;cursor:pointer;letter-spacing:.04em;transition:background .2s,transform .12s}
+.btn-send{width:100%;padding:14px;background:var(--a2);color:#060A0C;font-family:var(--body);font-size:.9rem;font-weight:600;border:none;border-radius:1px;cursor:pointer;letter-spacing:.04em;transition:background .2s,transform .12s}
 .btn-send:hover{background:var(--a1);transform:translateY(-1px)}
 
 /* ─── FOOTER ─── */
@@ -745,7 +745,7 @@ ham.addEventListener('click',()=>ham.classList.contains('open')?closeD():openMen
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&ham.classList.contains('open'))closeD()});
 
 /* Form */
-function handleSub(e){e.preventDefault();const b=e.target.querySelector('.btn-send');b.textContent='Sent ✓';b.style.background='#a06800';b.style.color='#fff';setTimeout(()=>{b.textContent='Send Message →';b.style.background='';b.style.color='';e.target.reset()},3000)}
+function handleSub(e){e.preventDefault();const b=e.target.querySelector('.btn-send');b.textContent='Sent ✓';b.style.background='#0D9488';b.style.color='#fff';setTimeout(()=>{b.textContent='Send Message →';b.style.background='';b.style.color='';e.target.reset()},3000)}
 </script>
 </body>
 </html>
