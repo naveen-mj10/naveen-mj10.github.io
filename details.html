@@ -1,103 +1,305 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Google Sheet Form</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jersey Registration Form</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: #f4f4f4;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    .container {
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      width: 300px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
 
-    button {
-      width: 100%;
-      padding: 10px;
-      background: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#0f172a,#1e293b,#334155);
+    padding:20px;
+}
 
-    button:hover {
-      background: #0056b3;
-    }
+.container{
+    width:100%;
+    max-width:450px;
+    background:#fff;
+    padding:30px;
+    border-radius:24px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.25);
+}
 
-    #message {
-      margin-top: 10px;
-      text-align: center;
-    }
-  </style>
+.title{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.title h1{
+    font-size:28px;
+    color:#0f172a;
+}
+
+.title p{
+    color:#64748b;
+    margin-top:5px;
+    font-size:14px;
+}
+
+.input-group{
+    margin-bottom:18px;
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    font-size:14px;
+    font-weight:600;
+    color:#334155;
+}
+
+input[type="text"],
+input[type="number"],
+select{
+    width:100%;
+    padding:14px;
+    border:1px solid #dbe2ea;
+    border-radius:12px;
+    outline:none;
+    font-size:15px;
+    transition:.3s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus{
+    border-color:#2563eb;
+}
+
+.radio-box,
+.checkbox-box{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.radio-box label,
+.checkbox-box label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-weight:500;
+    cursor:pointer;
+}
+
+.submit-btn{
+    width:100%;
+    border:none;
+    background:#2563eb;
+    color:#fff;
+    padding:15px;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.submit-btn:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+.status{
+    margin-top:15px;
+    text-align:center;
+    color:#16a34a;
+    font-weight:600;
+}
+
+.submit-btn:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+</style>
 </head>
+
 <body>
 
-  <div class="container">
-    <h2>User Form</h2>
+<div class="container">
 
-    <input type="text" id="name" placeholder="Enter Name" />
-    <input type="number" id="number" placeholder="Age" />
+    <div class="title">
+        <h1>🏏 Jersey Registration</h1>
+        <p>Fill your jersey details below</p>
+    </div>
 
-    <button onclick="submitForm()">Submit</button>
+    <div class="input-group">
+        <label>T-Shirt Printed Name</label>
+        <input type="text" id="name" placeholder="Enter Name">
+    </div>
 
-    <p id="message"></p>
-  </div>
+    <div class="input-group">
+        <label>T-Shirt Printed Number</label>
+        <input type="number" id="number" placeholder="Enter Number">
+    </div>
 
-  <script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbySAAYjvOWqy4dPEb_yCUPvcCbhQbjx0w4Qlp34IOKgv6udcAoyQpxfJGC1AtXY_yw-Ow/exec";
+    <div class="input-group">
+        <label>T-Shirt Size</label>
+        <select id="size">
+            <option value="">Select Size</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+            <option>XXL</option>
+        </select>
+    </div>
 
-    async function submitForm() {
-      const name = document.getElementById("name").value;
-      const number = document.getElementById("number").value;
+    <div class="input-group">
+        <label>Sleeve Type</label>
 
-      if (!name || !number) {
-        document.getElementById("message").innerText =
-          "Please fill all fields";
-        return;
-      }
+        <div class="radio-box">
+            <label>
+                <input type="radio" name="sleeve" value="Half Hand" checked>
+                Half Hand
+            </label>
 
-      try {
-        await fetch(SCRIPT_URL, {
-          method: "POST",
-          body: JSON.stringify({
-            name,
-            number
-          })
-        });
+            <label>
+                <input type="radio" name="sleeve" value="Full Hand">
+                Full Hand
+            </label>
+        </div>
+    </div>
 
-        document.getElementById("message").innerText =
-          "Submitted Successfully";
+    <div class="input-group">
+        <label>Payment Status</label>
 
-        document.getElementById("name").value = "";
-        document.getElementById("number").value = "";
+        <div class="checkbox-box">
+            <label>
+                <input type="checkbox" id="paid">
+                Paid
+            </label>
+        </div>
+    </div>
 
-      } catch (error) {
-        document.getElementById("message").innerText =
-          "Submission Failed";
-      }
+   <button id="submitBtn" class="submit-btn" onclick="submitForm()">
+  Submit Order
+</button>
+
+</div>
+
+<script>
+  const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbzyC8qlWvOYM-XX6kBKrERYU8jW9OGXWlo3RmJmUYVdDfuFKAJpVVPdIXMRKnHFiiAHOA/exec";
+
+async function submitForm() {
+
+  const submitBtn = document.getElementById("submitBtn");
+
+  const name = document.getElementById("name").value.trim();
+  const number = document.getElementById("number").value.trim();
+  const size = document.getElementById("size").value;
+
+  const sleeve =
+    document.querySelector('input[name="sleeve"]:checked').value;
+
+  const paymentStatus =
+    document.getElementById("paid").checked
+      ? "Paid"
+      : "Unpaid";
+
+  // Validation
+  if (!name || !number || !size) {
+    Swal.fire({
+      icon: "warning",
+      title: "Missing Details",
+      text: "Please fill all fields"
+    });
+    return;
+  }
+
+  // Prevent double click
+  submitBtn.disabled = true;
+  submitBtn.innerText = "Submitting...";
+
+  console.log({
+  name,
+  number,
+  size,
+  sleeve,
+  paymentStatus
+});
+
+  try {
+
+    const response = await fetch(SCRIPT_URL, {
+      method: "POST",
+      body: JSON.stringify({
+        name,
+        number,
+        size,
+        sleeve,
+        paymentStatus
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error("Submission failed");
     }
-  </script>
+
+    await Swal.fire({
+      icon: "success",
+      title: "🎉 Order Submitted!",
+      html: `
+        <div style="text-align:left">
+          <b>Name:</b> ${name}<br>
+          <b>Number:</b> ${number}<br>
+          <b>Size:</b> ${size}<br>
+          <b>Sleeve:</b> ${sleeve}<br>
+          <b>Payment:</b> ${paymentStatus}
+        </div>
+      `,
+      confirmButtonText: "Awesome!"
+    });
+
+    // Reset form
+    document.getElementById("name").value = "";
+    document.getElementById("number").value = "";
+    document.getElementById("size").value = "";
+    document.getElementById("paid").checked = false;
+
+    document.querySelector(
+      'input[name="sleeve"][value="Half Hand"]'
+    ).checked = true;
+
+    // Enable button again
+    submitBtn.disabled = false;
+    submitBtn.innerText = "Submit Order";
+
+  } catch (error) {
+
+    Swal.fire({
+      icon: "error",
+      title: "Submission Failed",
+      text: "Please try again."
+    });
+
+    submitBtn.disabled = false;
+    submitBtn.innerText = "Submit Order";
+
+    console.error(error);
+  }
+}
+</script>
 
 </body>
 </html>
